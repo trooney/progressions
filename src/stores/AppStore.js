@@ -1,32 +1,24 @@
-/** @flow */
+import { observable, action, decorate } from 'mobx'
 
-import { observable, action, computed } from 'mobx'
-
-import { notes, scales, progressions, DEFAULT_PROGRESSION } from '../lib/knowledge'
+import { notes, scales, DEFAULT_PROGRESSION } from '../lib/knowledge'
 import * as Progressions from '../lib/progressions'
 
-export default class AppStore {
-  @observable
-  isPlaying: boolean = false
+class AppStore {
+  isPlaying = false
 
-  @observable
-  bpm:number = 90
+  bpm = 90
 
-  @observable
-  key:string = 'c'
+  key = 'c'
 
-  @observable
-  scale:string = 'major'
+  scale = 'major'
 
-  @observable
-  progression: string = DEFAULT_PROGRESSION
+  progression = DEFAULT_PROGRESSION
 
-  @action
-  setField(name: string, value: string | number) {
-    (this: Object)[name] = value;
+  setField(name, value) {
+    console.log('setField', name, value)
+    this[name] = value
   }
 
-  @action
   togglePlaying() {
     this.isPlaying = !this.isPlaying
   }
@@ -35,17 +27,14 @@ export default class AppStore {
     return notes
   }
 
-  @computed.struct
   get musicKeys() {
-    return notes;
+    return notes
   }
 
-  @computed.struct
   get musicScales() {
     return scales
   }
 
-  @computed.struct
   get musicProgressions() {
     return [
       {
@@ -54,20 +43,14 @@ export default class AppStore {
       },
       {
         name: 'Pop',
-        progressions: [
-          'I V VI IV',
-          'I IV V',
-          'VI IV I V',
-          'I IV VI V',
-          'I VI II V'
-        ],
+        progressions: ['I V VI IV', 'I IV V', 'VI IV I V', 'I IV VI V', 'I VI II V'],
       },
       {
         name: '12 Bar Blues',
         progressions: [
           'I I I I IV IV I I V IV I V',
           'I IV I I IV IV I I II V I V',
-          'I I I I IV IV I I V V I I'
+          'I I I I IV IV I I V V I I',
         ],
       },
     ]
@@ -79,3 +62,18 @@ export default class AppStore {
     return Progressions.get(this.key, this.scale, this.progression)
   }
 }
+
+decorate(AppStore, {
+  isPlaying: observable,
+  bpm: observable,
+  key: observable,
+  scale: observable,
+  progression: observable,
+  setField: action,
+  togglePlaying: action,
+  // getMusicKeys: computed({ equals: comparer.structural }),
+  // musicScales: computed.struct,
+  // musicProgressions: computed.struct,
+})
+
+export default AppStore

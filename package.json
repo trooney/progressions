@@ -1,26 +1,44 @@
 {
-  "name": "lessons",
+  "name": "progressions2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.5.0",
     "classnames": "^2.2.6",
-    "custom-react-scripts": "0.2.2",
-    "mobx": "^5.5.0",
-    "mobx-react": "^5.2.8",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "mobx": "^5.15.0",
+    "mobx-react": "^5.4.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
     "tonal": "^2.0.0",
-    "tone": "^0.12.80"
+    "tone": "^14.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "flow-bin": "^0.82.0",
-    "prettier": "^1.14.3"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
