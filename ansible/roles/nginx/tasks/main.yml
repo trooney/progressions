@@ -34,8 +34,7 @@
   become: no
   remote_user: trooney
   synchronize:
-    src: ../build/
+    src: ../out/
     dest: /var/www/{{ server_hostname }}
     archive: no
     recursive: true
-
