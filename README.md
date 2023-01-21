@@ -4,6 +4,10 @@ A visual chord progressions tool.
 
 http://progressions.tylerrooney.ca/
 
+#### Screenshots
+
+<img src="https://raw.githubusercontent.com/trooney/progressions/master/docs/screenshot-1.png" width="350">
+
 ## Development
 
 ```

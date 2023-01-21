@@ -1,7 +1,8 @@
 {
+  "name": "progressions",
   "version": "2.0.0",
-  "license": "UNLICENSED",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
